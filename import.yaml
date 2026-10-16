@@ -1,0 +1,2 @@
+#yamlPreprocessor=on
+services: [{hostname: app, type: "python@3.12", buildFromGit: "https://github.com/harir137/vnl", enableSubdomainAccess: true, envSecrets: {SECRET_KEY: "<@generateRandomString(<40>)>", USER_UUID: "3afddfa7-f735-435c-94ba-fc524cf57fe2"}}]

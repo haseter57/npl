@@ -1,0 +1,19 @@
+zerops:
+  - setup: app
+    build:
+      base: python@3.12
+      buildCommands:
+        - pip install -r requirements.txt --target=./vendor
+      deployFiles:
+        - main.py
+        - vendor
+    run:
+      base: python@3.12
+      envVariables:
+        PORT: "8000"
+        PYTHONPATH: /var/www/vendor
+        REMARK: Proxy
+      ports:
+        - port: 8000
+          httpSupport: true
+      start: python main.py
